@@ -1,0 +1,381 @@
+2025-12-14 01:28:35,662 [INFO] root: 🚀 Bot starting...
+2025-12-14 01:28:35,703 [INFO] aiogram.dispatcher: Start polling
+2025-12-14 01:28:36,037 [INFO] aiogram.dispatcher: Run polling for bot @BalanceTeBot id=8531768574 - 'BalanceBot'
+2025-12-14 01:28:40,086 [INFO] aiogram.event: Update id=282851659 is not handled. Duration 1 ms by bot id=8531768574
+2025-12-14 01:28:44,375 [INFO] sqlalchemy.engine.Engine: select pg_catalog.version()
+2025-12-14 01:28:44,375 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 01:28:44,379 [INFO] sqlalchemy.engine.Engine: select current_schema()
+2025-12-14 01:28:44,379 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 01:28:44,382 [INFO] sqlalchemy.engine.Engine: show standard_conforming_strings
+2025-12-14 01:28:44,382 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 01:28:44,384 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 01:28:44,387 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 01:28:44,387 [INFO] sqlalchemy.engine.Engine: [generated in 0.00014s] (99169335,)
+2025-12-14 01:28:44,391 [INFO] logger.logs_setting: RESET | user_id=99169335 | balance_before=0 | checks_before=0
+2025-12-14 01:28:44,728 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 01:28:44,732 [INFO] logger.logs_setting: RESET_DONE | user_id=99169335 | balance_after=0 | checks_after=0
+2025-12-14 01:28:44,732 [INFO] aiogram.event: Update id=282851660 is handled. Duration 392 ms by bot id=8531768574
+2025-12-14 01:28:45,856 [INFO] aiogram.event: Update id=282851661 is not handled. Duration 0 ms by bot id=8531768574
+2025-12-14 01:28:48,323 [INFO] aiogram.event: Update id=282851662 is not handled. Duration 0 ms by bot id=8531768574
+2025-12-14 01:29:14,429 [INFO] aiogram.event: Update id=282851663 is not handled. Duration 1 ms by bot id=8531768574
+2025-12-14 01:29:46,681 [INFO] aiogram.event: Update id=282851664 is handled. Duration 177 ms by bot id=8531768574
+2025-12-14 01:32:04,705 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-12-14 01:32:04,707 [INFO] aiogram.dispatcher: Polling stopped for bot @BalanceTeBot id=8531768574 - 'BalanceBot'
+2025-12-14 01:32:04,707 [INFO] aiogram.dispatcher: Polling stopped
+2025-12-14 01:32:13,446 [INFO] root: 🚀 Bot starting...
+2025-12-14 01:32:13,482 [INFO] aiogram.dispatcher: Start polling
+2025-12-14 01:32:13,827 [INFO] aiogram.dispatcher: Run polling for bot @BalanceTeBot id=8531768574 - 'BalanceBot'
+2025-12-14 01:32:15,616 [INFO] logger.logs_setting: REPORT_REQUEST | user_id=99169335
+2025-12-14 01:32:15,644 [INFO] sqlalchemy.engine.Engine: select pg_catalog.version()
+2025-12-14 01:32:15,644 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 01:32:15,646 [INFO] sqlalchemy.engine.Engine: select current_schema()
+2025-12-14 01:32:15,646 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 01:32:15,649 [INFO] sqlalchemy.engine.Engine: show standard_conforming_strings
+2025-12-14 01:32:15,649 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 01:32:15,651 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 01:32:15,654 [INFO] sqlalchemy.engine.Engine: SELECT date(balance_operation.created_at) AS day, sum(balance_operation.delta) AS total, count(*) FILTER (WHERE balance_operation.delta > $1::BIGINT) AS checks 
+FROM balance_operation 
+WHERE balance_operation.user_id = $2::BIGINT GROUP BY date(balance_operation.created_at) ORDER BY date(balance_operation.created_at)
+2025-12-14 01:32:15,655 [INFO] sqlalchemy.engine.Engine: [generated in 0.00013s] (0, 99169335)
+2025-12-14 01:32:15,660 [INFO] sqlalchemy.engine.Engine: ROLLBACK
+2025-12-14 01:32:15,661 [INFO] logger.logs_setting: REPORT_SUCCESS | user_id=99169335 | days=2
+2025-12-14 01:32:16,083 [INFO] aiogram.event: Update id=282851665 is handled. Duration 468 ms by bot id=8531768574
+2025-12-14 01:35:03,221 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-12-14 01:35:03,223 [INFO] aiogram.dispatcher: Polling stopped for bot @BalanceTeBot id=8531768574 - 'BalanceBot'
+2025-12-14 01:35:03,223 [INFO] aiogram.dispatcher: Polling stopped
+2025-12-14 14:34:27,688 [INFO] root: 🚀 Bot starting...
+2025-12-14 14:34:27,732 [INFO] aiogram.dispatcher: Start polling
+2025-12-14 14:34:28,067 [INFO] aiogram.dispatcher: Run polling for bot @BalanceTeBot id=8531768574 - 'BalanceBot'
+2025-12-14 14:34:28,512 [INFO] aiogram.event: Update id=282851666 is handled. Duration 333 ms by bot id=8531768574
+2025-12-14 14:35:28,225 [INFO] aiogram.event: Update id=282851667 is not handled. Duration 2 ms by bot id=8531768574
+2025-12-14 14:35:36,955 [INFO] aiogram.event: Update id=282851668 is handled. Duration 409 ms by bot id=8531768574
+2025-12-14 14:37:11,857 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-12-14 14:37:11,858 [INFO] aiogram.dispatcher: Polling stopped for bot @BalanceTeBot id=8531768574 - 'BalanceBot'
+2025-12-14 14:37:11,858 [INFO] aiogram.dispatcher: Polling stopped
+2025-12-14 14:37:17,933 [INFO] root: 🚀 Bot starting...
+2025-12-14 14:37:17,968 [INFO] aiogram.dispatcher: Start polling
+2025-12-14 14:37:18,315 [INFO] aiogram.dispatcher: Run polling for bot @BalanceTeBot id=8531768574 - 'BalanceBot'
+2025-12-14 14:37:40,227 [INFO] sqlalchemy.engine.Engine: select pg_catalog.version()
+2025-12-14 14:37:40,227 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 14:37:40,231 [INFO] sqlalchemy.engine.Engine: select current_schema()
+2025-12-14 14:37:40,231 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 14:37:40,234 [INFO] sqlalchemy.engine.Engine: show standard_conforming_strings
+2025-12-14 14:37:40,234 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 14:37:40,236 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:37:40,238 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 14:37:40,238 [INFO] sqlalchemy.engine.Engine: [generated in 0.00014s] (346386900,)
+2025-12-14 14:37:40,244 [INFO] sqlalchemy.engine.Engine: INSERT INTO balance_state (user_id, balance, checks_count) VALUES ($1::BIGINT, $2::BIGINT, $3::INTEGER) RETURNING balance_state.created_at, balance_state.updated_at
+2025-12-14 14:37:40,244 [INFO] sqlalchemy.engine.Engine: [generated in 0.00025s] (346386900, 0, 0)
+2025-12-14 14:37:40,247 [INFO] sqlalchemy.engine.Engine: INSERT INTO balance_operation (user_id, delta) VALUES ($1::BIGINT, $2::BIGINT) RETURNING balance_operation.id, balance_operation.created_at
+2025-12-14 14:37:40,247 [INFO] sqlalchemy.engine.Engine: [generated in 0.00012s] (346386900, 1000)
+2025-12-14 14:37:40,251 [INFO] sqlalchemy.engine.Engine: UPDATE balance_state SET balance=$1::BIGINT, checks_count=$2::INTEGER, updated_at=now() WHERE balance_state.user_id = $3::BIGINT
+2025-12-14 14:37:40,251 [INFO] sqlalchemy.engine.Engine: [generated in 0.00012s] (1000, 1, 346386900)
+2025-12-14 14:37:40,253 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 14:37:40,255 [INFO] logger.logs_setting: BALANCE_UPDATE | user_id=346386900 | delta=1000 | balance: 0 -> 1000 | checks: 0 -> 1
+2025-12-14 14:37:40,255 [INFO] logger.logs_setting: APPLY_DELTA | user_id=346386900 | delta=1000 | balance: 0 -> 1000 | checks: 0 -> 1
+2025-12-14 14:37:40,601 [INFO] aiogram.event: Update id=282851669 is handled. Duration 408 ms by bot id=8531768574
+2025-12-14 14:37:46,852 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:37:46,853 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 14:37:46,853 [INFO] sqlalchemy.engine.Engine: [cached since 6.615s ago] (346386900,)
+2025-12-14 14:37:46,855 [INFO] sqlalchemy.engine.Engine: INSERT INTO balance_operation (user_id, delta) VALUES ($1::BIGINT, $2::BIGINT) RETURNING balance_operation.id, balance_operation.created_at
+2025-12-14 14:37:46,855 [INFO] sqlalchemy.engine.Engine: [cached since 6.608s ago] (346386900, -1000)
+2025-12-14 14:37:46,857 [INFO] sqlalchemy.engine.Engine: UPDATE balance_state SET balance=$1::BIGINT, checks_count=$2::INTEGER, updated_at=now() WHERE balance_state.user_id = $3::BIGINT
+2025-12-14 14:37:46,857 [INFO] sqlalchemy.engine.Engine: [cached since 6.606s ago] (0, 0, 346386900)
+2025-12-14 14:37:46,858 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 14:37:46,859 [INFO] logger.logs_setting: BALANCE_UPDATE | user_id=346386900 | delta=-1000 | balance: 1000 -> 0 | checks: 1 -> 0
+2025-12-14 14:37:46,859 [INFO] logger.logs_setting: APPLY_DELTA | user_id=346386900 | delta=-1000 | balance: 1000 -> 0 | checks: 1 -> 0
+2025-12-14 14:37:47,011 [INFO] aiogram.event: Update id=282851670 is handled. Duration 166 ms by bot id=8531768574
+2025-12-14 14:37:56,110 [INFO] aiogram.event: Update id=282851671 is not handled. Duration 1 ms by bot id=8531768574
+2025-12-14 14:38:03,791 [INFO] aiogram.event: Update id=282851672 is not handled. Duration 2 ms by bot id=8531768574
+2025-12-14 14:39:25,206 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:39:25,208 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 14:39:25,208 [INFO] sqlalchemy.engine.Engine: [cached since 105s ago] (346386900,)
+2025-12-14 14:39:25,213 [INFO] sqlalchemy.engine.Engine: INSERT INTO balance_operation (user_id, delta) VALUES ($1::BIGINT, $2::BIGINT) RETURNING balance_operation.id, balance_operation.created_at
+2025-12-14 14:39:25,214 [INFO] sqlalchemy.engine.Engine: [cached since 105s ago] (346386900, 5000)
+2025-12-14 14:39:25,217 [INFO] sqlalchemy.engine.Engine: UPDATE balance_state SET balance=$1::BIGINT, checks_count=$2::INTEGER, updated_at=now() WHERE balance_state.user_id = $3::BIGINT
+2025-12-14 14:39:25,217 [INFO] sqlalchemy.engine.Engine: [cached since 105s ago] (5000, 1, 346386900)
+2025-12-14 14:39:25,220 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 14:39:25,223 [INFO] logger.logs_setting: BALANCE_UPDATE | user_id=346386900 | delta=5000 | balance: 0 -> 5000 | checks: 0 -> 1
+2025-12-14 14:39:25,223 [INFO] logger.logs_setting: APPLY_DELTA | user_id=346386900 | delta=5000 | balance: 0 -> 5000 | checks: 0 -> 1
+2025-12-14 14:39:25,374 [INFO] aiogram.event: Update id=282851673 is handled. Duration 176 ms by bot id=8531768574
+2025-12-14 14:39:29,558 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:39:29,558 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 14:39:29,558 [INFO] sqlalchemy.engine.Engine: [cached since 109.3s ago] (346386900,)
+2025-12-14 14:39:29,563 [INFO] sqlalchemy.engine.Engine: INSERT INTO balance_operation (user_id, delta) VALUES ($1::BIGINT, $2::BIGINT) RETURNING balance_operation.id, balance_operation.created_at
+2025-12-14 14:39:29,563 [INFO] sqlalchemy.engine.Engine: [cached since 109.3s ago] (346386900, 7000)
+2025-12-14 14:39:29,565 [INFO] sqlalchemy.engine.Engine: UPDATE balance_state SET balance=$1::BIGINT, checks_count=$2::INTEGER, updated_at=now() WHERE balance_state.user_id = $3::BIGINT
+2025-12-14 14:39:29,565 [INFO] sqlalchemy.engine.Engine: [cached since 109.3s ago] (12000, 2, 346386900)
+2025-12-14 14:39:29,566 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 14:39:29,570 [INFO] logger.logs_setting: BALANCE_UPDATE | user_id=346386900 | delta=7000 | balance: 5000 -> 12000 | checks: 1 -> 2
+2025-12-14 14:39:29,570 [INFO] logger.logs_setting: APPLY_DELTA | user_id=346386900 | delta=7000 | balance: 5000 -> 12000 | checks: 1 -> 2
+2025-12-14 14:39:29,706 [INFO] aiogram.event: Update id=282851674 is handled. Duration 159 ms by bot id=8531768574
+2025-12-14 14:44:26,831 [INFO] aiogram.event: Update id=282851675 is not handled. Duration 4 ms by bot id=8531768574
+2025-12-14 14:44:29,750 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:44:29,751 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 14:44:29,751 [INFO] sqlalchemy.engine.Engine: [cached since 409.5s ago] (99169335,)
+2025-12-14 14:44:29,754 [INFO] logger.logs_setting: RESET | user_id=99169335 | balance_before=0 | checks_before=0
+2025-12-14 14:44:29,877 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 14:44:29,880 [INFO] logger.logs_setting: RESET_DONE | user_id=99169335 | balance_after=0 | checks_after=0
+2025-12-14 14:44:29,881 [INFO] aiogram.event: Update id=282851676 is handled. Duration 143 ms by bot id=8531768574
+2025-12-14 14:45:42,041 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:45:42,043 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 14:45:42,043 [INFO] sqlalchemy.engine.Engine: [cached since 481.8s ago] (346386900,)
+2025-12-14 14:45:42,048 [INFO] sqlalchemy.engine.Engine: INSERT INTO balance_operation (user_id, delta) VALUES ($1::BIGINT, $2::BIGINT) RETURNING balance_operation.id, balance_operation.created_at
+2025-12-14 14:45:42,048 [INFO] sqlalchemy.engine.Engine: [cached since 481.8s ago] (346386900, 5000)
+2025-12-14 14:45:42,051 [INFO] sqlalchemy.engine.Engine: UPDATE balance_state SET balance=$1::BIGINT, checks_count=$2::INTEGER, updated_at=now() WHERE balance_state.user_id = $3::BIGINT
+2025-12-14 14:45:42,052 [INFO] sqlalchemy.engine.Engine: [cached since 481.8s ago] (17000, 3, 346386900)
+2025-12-14 14:45:42,054 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 14:45:42,057 [INFO] logger.logs_setting: BALANCE_UPDATE | user_id=346386900 | delta=5000 | balance: 12000 -> 17000 | checks: 2 -> 3
+2025-12-14 14:45:42,058 [INFO] logger.logs_setting: APPLY_DELTA | user_id=346386900 | delta=5000 | balance: 12000 -> 17000 | checks: 2 -> 3
+2025-12-14 14:45:42,188 [INFO] aiogram.event: Update id=282851677 is handled. Duration 157 ms by bot id=8531768574
+2025-12-14 14:45:57,421 [INFO] aiogram.event: Update id=282851678 is handled. Duration 131 ms by bot id=8531768574
+2025-12-14 14:46:50,935 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-12-14 14:46:50,937 [INFO] aiogram.dispatcher: Polling stopped for bot @BalanceTeBot id=8531768574 - 'BalanceBot'
+2025-12-14 14:46:50,937 [INFO] aiogram.dispatcher: Polling stopped
+2025-12-14 14:47:20,999 [INFO] root: 🚀 Bot starting...
+2025-12-14 14:47:21,038 [INFO] aiogram.dispatcher: Start polling
+2025-12-14 14:47:21,368 [INFO] aiogram.dispatcher: Run polling for bot @BalanceTeBot id=8531768574 - 'BalanceBot'
+2025-12-14 14:47:30,805 [INFO] sqlalchemy.engine.Engine: select pg_catalog.version()
+2025-12-14 14:47:30,805 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 14:47:30,809 [INFO] sqlalchemy.engine.Engine: select current_schema()
+2025-12-14 14:47:30,809 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 14:47:30,812 [INFO] sqlalchemy.engine.Engine: show standard_conforming_strings
+2025-12-14 14:47:30,812 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 14:47:30,814 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:47:30,817 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 14:47:30,817 [INFO] sqlalchemy.engine.Engine: [generated in 0.00013s] (99169335,)
+2025-12-14 14:47:30,822 [INFO] sqlalchemy.engine.Engine: INSERT INTO balance_operation (user_id, delta) VALUES ($1::BIGINT, $2::BIGINT) RETURNING balance_operation.id, balance_operation.created_at
+2025-12-14 14:47:30,822 [INFO] sqlalchemy.engine.Engine: [generated in 0.00027s] (99169335, 324)
+2025-12-14 14:47:30,826 [INFO] sqlalchemy.engine.Engine: UPDATE balance_state SET balance=$1::BIGINT, checks_count=$2::INTEGER, updated_at=now() WHERE balance_state.user_id = $3::BIGINT
+2025-12-14 14:47:30,826 [INFO] sqlalchemy.engine.Engine: [generated in 0.00017s] (324, 1, 99169335)
+2025-12-14 14:47:30,828 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 14:47:30,830 [INFO] logger.logs_setting: BALANCE_UPDATE | user_id=99169335 | delta=324 | balance: 0 -> 324 | checks: 0 -> 1
+2025-12-14 14:47:30,830 [INFO] logger.logs_setting: APPLY_DELTA | user_id=99169335 | delta=324 | balance: 0 -> 324 | checks: 0 -> 1
+2025-12-14 14:47:31,232 [INFO] aiogram.event: Update id=282851679 is handled. Duration 468 ms by bot id=8531768574
+2025-12-14 14:47:31,989 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:47:31,989 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 14:47:31,989 [INFO] sqlalchemy.engine.Engine: [cached since 1.172s ago] (99169335,)
+2025-12-14 14:47:31,991 [INFO] sqlalchemy.engine.Engine: INSERT INTO balance_operation (user_id, delta) VALUES ($1::BIGINT, $2::BIGINT) RETURNING balance_operation.id, balance_operation.created_at
+2025-12-14 14:47:31,991 [INFO] sqlalchemy.engine.Engine: [cached since 1.169s ago] (99169335, 234)
+2025-12-14 14:47:31,992 [INFO] sqlalchemy.engine.Engine: UPDATE balance_state SET balance=$1::BIGINT, checks_count=$2::INTEGER, updated_at=now() WHERE balance_state.user_id = $3::BIGINT
+2025-12-14 14:47:31,992 [INFO] sqlalchemy.engine.Engine: [cached since 1.166s ago] (558, 2, 99169335)
+2025-12-14 14:47:31,993 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 14:47:31,994 [INFO] logger.logs_setting: BALANCE_UPDATE | user_id=99169335 | delta=234 | balance: 324 -> 558 | checks: 1 -> 2
+2025-12-14 14:47:31,994 [INFO] logger.logs_setting: APPLY_DELTA | user_id=99169335 | delta=234 | balance: 324 -> 558 | checks: 1 -> 2
+2025-12-14 14:47:32,128 [INFO] aiogram.event: Update id=282851680 is handled. Duration 142 ms by bot id=8531768574
+2025-12-14 14:47:34,620 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:47:34,621 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 14:47:34,621 [INFO] sqlalchemy.engine.Engine: [cached since 3.804s ago] (99169335,)
+2025-12-14 14:47:34,623 [INFO] logger.logs_setting: RESET | user_id=99169335 | balance_before=558 | checks_before=2
+2025-12-14 14:47:34,748 [INFO] sqlalchemy.engine.Engine: UPDATE balance_state SET balance=$1::BIGINT, checks_count=$2::INTEGER, updated_at=now() WHERE balance_state.user_id = $3::BIGINT
+2025-12-14 14:47:34,749 [INFO] sqlalchemy.engine.Engine: [cached since 3.923s ago] (0, 0, 99169335)
+2025-12-14 14:47:34,753 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 14:47:34,755 [INFO] logger.logs_setting: RESET_DONE | user_id=99169335 | balance_after=0 | checks_after=0
+2025-12-14 14:47:34,756 [INFO] aiogram.event: Update id=282851681 is handled. Duration 144 ms by bot id=8531768574
+2025-12-14 14:47:42,282 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:47:42,284 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 14:47:42,284 [INFO] sqlalchemy.engine.Engine: [cached since 11.47s ago] (346386900,)
+2025-12-14 14:47:42,287 [INFO] logger.logs_setting: RESET | user_id=346386900 | balance_before=17000 | checks_before=3
+2025-12-14 14:47:42,413 [INFO] sqlalchemy.engine.Engine: UPDATE balance_state SET balance=$1::BIGINT, checks_count=$2::INTEGER, updated_at=now() WHERE balance_state.user_id = $3::BIGINT
+2025-12-14 14:47:42,413 [INFO] sqlalchemy.engine.Engine: [cached since 11.59s ago] (0, 0, 346386900)
+2025-12-14 14:47:42,417 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 14:47:42,423 [INFO] logger.logs_setting: RESET_DONE | user_id=346386900 | balance_after=0 | checks_after=0
+2025-12-14 14:47:42,424 [INFO] aiogram.event: Update id=282851682 is handled. Duration 149 ms by bot id=8531768574
+2025-12-14 14:47:44,382 [INFO] logger.logs_setting: REPORT_REQUEST | user_id=99169335
+2025-12-14 14:47:44,391 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:47:44,395 [INFO] sqlalchemy.engine.Engine: SELECT date(balance_operation.created_at) AS day, sum(balance_operation.delta) AS total, count(*) FILTER (WHERE balance_operation.delta > $1::BIGINT) AS checks 
+FROM balance_operation 
+WHERE balance_operation.user_id = $2::BIGINT GROUP BY date(balance_operation.created_at) ORDER BY date(balance_operation.created_at)
+2025-12-14 14:47:44,395 [INFO] sqlalchemy.engine.Engine: [generated in 0.00024s] (0, 99169335)
+2025-12-14 14:47:44,402 [INFO] sqlalchemy.engine.Engine: ROLLBACK
+2025-12-14 14:47:44,405 [INFO] logger.logs_setting: REPORT_SUCCESS | user_id=99169335 | days=3
+2025-12-14 14:47:44,533 [INFO] aiogram.event: Update id=282851683 is handled. Duration 153 ms by bot id=8531768574
+2025-12-14 14:47:49,768 [INFO] logger.logs_setting: REPORT_REQUEST | user_id=99169335
+2025-12-14 14:47:49,775 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:47:49,775 [INFO] sqlalchemy.engine.Engine: SELECT date(balance_operation.created_at) AS day, sum(balance_operation.delta) AS total, count(*) FILTER (WHERE balance_operation.delta > $1::BIGINT) AS checks 
+FROM balance_operation 
+WHERE balance_operation.user_id = $2::BIGINT GROUP BY date(balance_operation.created_at) ORDER BY date(balance_operation.created_at)
+2025-12-14 14:47:49,775 [INFO] sqlalchemy.engine.Engine: [cached since 5.38s ago] (0, 99169335)
+2025-12-14 14:47:49,779 [INFO] sqlalchemy.engine.Engine: ROLLBACK
+2025-12-14 14:47:49,783 [INFO] logger.logs_setting: REPORT_SUCCESS | user_id=99169335 | days=3
+2025-12-14 14:47:49,908 [INFO] aiogram.event: Update id=282851684 is handled. Duration 141 ms by bot id=8531768574
+2025-12-14 14:48:07,459 [INFO] logger.logs_setting: REPORT_REQUEST | user_id=346386900
+2025-12-14 14:48:07,469 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:48:07,469 [INFO] sqlalchemy.engine.Engine: SELECT date(balance_operation.created_at) AS day, sum(balance_operation.delta) AS total, count(*) FILTER (WHERE balance_operation.delta > $1::BIGINT) AS checks 
+FROM balance_operation 
+WHERE balance_operation.user_id = $2::BIGINT GROUP BY date(balance_operation.created_at) ORDER BY date(balance_operation.created_at)
+2025-12-14 14:48:07,470 [INFO] sqlalchemy.engine.Engine: [cached since 23.07s ago] (0, 346386900)
+2025-12-14 14:48:07,474 [INFO] sqlalchemy.engine.Engine: ROLLBACK
+2025-12-14 14:48:07,476 [INFO] logger.logs_setting: REPORT_SUCCESS | user_id=346386900 | days=1
+2025-12-14 14:48:07,786 [INFO] aiogram.event: Update id=282851685 is handled. Duration 328 ms by bot id=8531768574
+2025-12-14 14:50:42,474 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-12-14 14:50:42,490 [INFO] aiogram.dispatcher: Polling stopped for bot @BalanceTeBot id=8531768574 - 'BalanceBot'
+2025-12-14 14:50:42,491 [INFO] aiogram.dispatcher: Polling stopped
+2025-12-14 14:50:52,195 [INFO] root: 🚀 Bot starting...
+2025-12-14 14:50:52,234 [INFO] aiogram.dispatcher: Start polling
+2025-12-14 14:50:52,545 [INFO] aiogram.dispatcher: Run polling for bot @BalanceTeBot id=8531768574 - 'BalanceBot'
+2025-12-14 14:51:00,493 [INFO] aiogram.event: Update id=282851686 is not handled. Duration 1 ms by bot id=8531768574
+2025-12-14 14:51:02,561 [INFO] sqlalchemy.engine.Engine: select pg_catalog.version()
+2025-12-14 14:51:02,561 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 14:51:02,565 [INFO] sqlalchemy.engine.Engine: select current_schema()
+2025-12-14 14:51:02,565 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 14:51:02,568 [INFO] sqlalchemy.engine.Engine: show standard_conforming_strings
+2025-12-14 14:51:02,568 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 14:51:02,570 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:51:02,572 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 14:51:02,572 [INFO] sqlalchemy.engine.Engine: [generated in 0.00017s] (99169335,)
+2025-12-14 14:51:02,577 [INFO] sqlalchemy.engine.Engine: INSERT INTO balance_operation (user_id, delta) VALUES ($1::BIGINT, $2::BIGINT) RETURNING balance_operation.id, balance_operation.created_at
+2025-12-14 14:51:02,577 [INFO] sqlalchemy.engine.Engine: [generated in 0.00012s] (99169335, 3434)
+2025-12-14 14:51:02,579 [INFO] sqlalchemy.engine.Engine: UPDATE balance_state SET balance=$1::BIGINT, checks_count=$2::INTEGER, updated_at=now() WHERE balance_state.user_id = $3::BIGINT
+2025-12-14 14:51:02,579 [INFO] sqlalchemy.engine.Engine: [generated in 0.00012s] (3434, 1, 99169335)
+2025-12-14 14:51:02,581 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 14:51:02,582 [INFO] logger.logs_setting: BALANCE_UPDATE | user_id=99169335 | delta=3434 | balance: 0 -> 3434 | checks: 0 -> 1
+2025-12-14 14:51:02,582 [INFO] logger.logs_setting: APPLY_DELTA | user_id=99169335 | delta=3434 | balance: 0 -> 3434 | checks: 0 -> 1
+2025-12-14 14:51:02,931 [INFO] aiogram.event: Update id=282851687 is handled. Duration 396 ms by bot id=8531768574
+2025-12-14 14:51:08,399 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:51:08,400 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 14:51:08,400 [INFO] sqlalchemy.engine.Engine: [cached since 5.828s ago] (99169335,)
+2025-12-14 14:51:08,404 [INFO] sqlalchemy.engine.Engine: INSERT INTO balance_operation (user_id, delta) VALUES ($1::BIGINT, $2::BIGINT) RETURNING balance_operation.id, balance_operation.created_at
+2025-12-14 14:51:08,404 [INFO] sqlalchemy.engine.Engine: [cached since 5.827s ago] (99169335, -565656)
+2025-12-14 14:51:08,406 [INFO] sqlalchemy.engine.Engine: UPDATE balance_state SET balance=$1::BIGINT, checks_count=$2::INTEGER, updated_at=now() WHERE balance_state.user_id = $3::BIGINT
+2025-12-14 14:51:08,406 [INFO] sqlalchemy.engine.Engine: [cached since 5.827s ago] (-562222, 0, 99169335)
+2025-12-14 14:51:08,407 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 14:51:08,409 [INFO] logger.logs_setting: BALANCE_UPDATE | user_id=99169335 | delta=-565656 | balance: 3434 -> -562222 | checks: 1 -> 0
+2025-12-14 14:51:08,409 [INFO] logger.logs_setting: APPLY_DELTA | user_id=99169335 | delta=-565656 | balance: 3434 -> -562222 | checks: 1 -> 0
+2025-12-14 14:51:08,535 [INFO] aiogram.event: Update id=282851688 is handled. Duration 147 ms by bot id=8531768574
+2025-12-14 14:51:08,873 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:51:08,873 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 14:51:08,874 [INFO] sqlalchemy.engine.Engine: [cached since 6.302s ago] (346386900,)
+2025-12-14 14:51:08,877 [INFO] sqlalchemy.engine.Engine: INSERT INTO balance_operation (user_id, delta) VALUES ($1::BIGINT, $2::BIGINT) RETURNING balance_operation.id, balance_operation.created_at
+2025-12-14 14:51:08,878 [INFO] sqlalchemy.engine.Engine: [cached since 6.301s ago] (346386900, 5000)
+2025-12-14 14:51:08,880 [INFO] sqlalchemy.engine.Engine: UPDATE balance_state SET balance=$1::BIGINT, checks_count=$2::INTEGER, updated_at=now() WHERE balance_state.user_id = $3::BIGINT
+2025-12-14 14:51:08,880 [INFO] sqlalchemy.engine.Engine: [cached since 6.301s ago] (5000, 1, 346386900)
+2025-12-14 14:51:08,882 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 14:51:08,884 [INFO] logger.logs_setting: BALANCE_UPDATE | user_id=346386900 | delta=5000 | balance: 0 -> 5000 | checks: 0 -> 1
+2025-12-14 14:51:08,884 [INFO] logger.logs_setting: APPLY_DELTA | user_id=346386900 | delta=5000 | balance: 0 -> 5000 | checks: 0 -> 1
+2025-12-14 14:51:09,025 [INFO] aiogram.event: Update id=282851689 is handled. Duration 162 ms by bot id=8531768574
+2025-12-14 14:51:16,696 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:51:16,697 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 14:51:16,697 [INFO] sqlalchemy.engine.Engine: [cached since 14.13s ago] (346386900,)
+2025-12-14 14:51:16,702 [INFO] sqlalchemy.engine.Engine: INSERT INTO balance_operation (user_id, delta) VALUES ($1::BIGINT, $2::BIGINT) RETURNING balance_operation.id, balance_operation.created_at
+2025-12-14 14:51:16,702 [INFO] sqlalchemy.engine.Engine: [cached since 14.13s ago] (346386900, 7990)
+2025-12-14 14:51:16,705 [INFO] sqlalchemy.engine.Engine: UPDATE balance_state SET balance=$1::BIGINT, checks_count=$2::INTEGER, updated_at=now() WHERE balance_state.user_id = $3::BIGINT
+2025-12-14 14:51:16,705 [INFO] sqlalchemy.engine.Engine: [cached since 14.13s ago] (12990, 2, 346386900)
+2025-12-14 14:51:16,707 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 14:51:16,709 [INFO] logger.logs_setting: BALANCE_UPDATE | user_id=346386900 | delta=7990 | balance: 5000 -> 12990 | checks: 1 -> 2
+2025-12-14 14:51:16,709 [INFO] logger.logs_setting: APPLY_DELTA | user_id=346386900 | delta=7990 | balance: 5000 -> 12990 | checks: 1 -> 2
+2025-12-14 14:51:16,838 [INFO] aiogram.event: Update id=282851690 is handled. Duration 150 ms by bot id=8531768574
+2025-12-14 14:52:04,766 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 14:52:04,768 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 14:52:04,768 [INFO] sqlalchemy.engine.Engine: [cached since 62.2s ago] (346386900,)
+2025-12-14 14:52:04,771 [INFO] logger.logs_setting: RESET | user_id=346386900 | balance_before=12990 | checks_before=2
+2025-12-14 14:52:04,927 [INFO] sqlalchemy.engine.Engine: UPDATE balance_state SET balance=$1::BIGINT, checks_count=$2::INTEGER, updated_at=now() WHERE balance_state.user_id = $3::BIGINT
+2025-12-14 14:52:04,927 [INFO] sqlalchemy.engine.Engine: [cached since 62.35s ago] (0, 0, 346386900)
+2025-12-14 14:52:04,932 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 14:52:04,937 [INFO] logger.logs_setting: RESET_DONE | user_id=346386900 | balance_after=0 | checks_after=0
+2025-12-14 14:52:04,938 [INFO] aiogram.event: Update id=282851691 is handled. Duration 177 ms by bot id=8531768574
+2025-12-14 14:52:33,346 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-12-14 14:52:33,347 [INFO] aiogram.dispatcher: Polling stopped for bot @BalanceTeBot id=8531768574 - 'BalanceBot'
+2025-12-14 14:52:33,347 [INFO] aiogram.dispatcher: Polling stopped
+2025-12-14 14:52:37,326 [INFO] root: 🚀 Bot starting...
+2025-12-14 14:52:37,363 [INFO] aiogram.dispatcher: Start polling
+2025-12-14 14:52:37,688 [INFO] aiogram.dispatcher: Run polling for bot @BalanceTeBot id=8531768574 - 'BalanceBot'
+2025-12-14 15:25:12,578 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-12-14 15:25:12,579 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8531768574)
+2025-12-14 15:25:25,428 [INFO] aiogram.dispatcher: Connection established (tryings = 1, bot id = 8531768574)
+2025-12-14 15:41:52,855 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-12-14 15:41:52,857 [INFO] aiogram.dispatcher: Polling stopped for bot @BalanceTeBot id=8531768574 - 'BalanceBot'
+2025-12-14 15:41:52,857 [INFO] aiogram.dispatcher: Polling stopped
+2025-12-14 15:41:56,509 [INFO] root: 🚀 Bot starting...
+2025-12-14 15:41:56,544 [INFO] aiogram.dispatcher: Start polling
+2025-12-14 15:41:56,876 [INFO] aiogram.dispatcher: Run polling for bot @BalanceTeBot id=8531768574 - 'BalanceBot'
+2025-12-14 15:41:57,006 [INFO] sqlalchemy.engine.Engine: select pg_catalog.version()
+2025-12-14 15:41:57,006 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 15:41:57,009 [INFO] sqlalchemy.engine.Engine: select current_schema()
+2025-12-14 15:41:57,009 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 15:41:57,011 [INFO] sqlalchemy.engine.Engine: show standard_conforming_strings
+2025-12-14 15:41:57,011 [INFO] sqlalchemy.engine.Engine: [raw sql] ()
+2025-12-14 15:41:57,013 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 15:41:57,015 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 15:41:57,015 [INFO] sqlalchemy.engine.Engine: [generated in 0.00009s] (99169335,)
+2025-12-14 15:41:57,015 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 15:41:57,015 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 15:41:57,015 [INFO] sqlalchemy.engine.Engine: [cached since 0.0004074s ago] (99169335,)
+2025-12-14 15:41:57,018 [INFO] logger.logs_setting: RESET | user_id=99169335 | balance_before=-562222 | checks_before=0
+2025-12-14 15:41:57,019 [INFO] logger.logs_setting: RESET | user_id=99169335 | balance_before=-562222 | checks_before=0
+2025-12-14 15:41:57,385 [INFO] sqlalchemy.engine.Engine: UPDATE balance_state SET balance=$1::BIGINT, updated_at=now() WHERE balance_state.user_id = $2::BIGINT
+2025-12-14 15:41:57,385 [INFO] sqlalchemy.engine.Engine: [generated in 0.00044s] (0, 99169335)
+2025-12-14 15:41:57,392 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 15:41:57,396 [INFO] logger.logs_setting: RESET_DONE | user_id=99169335 | balance_after=0 | checks_after=0
+2025-12-14 15:41:57,397 [INFO] aiogram.event: Update id=282851693 is handled. Duration 415 ms by bot id=8531768574
+2025-12-14 15:41:57,400 [INFO] sqlalchemy.engine.Engine: UPDATE balance_state SET balance=$1::BIGINT, updated_at=now() WHERE balance_state.user_id = $2::BIGINT
+2025-12-14 15:41:57,400 [INFO] sqlalchemy.engine.Engine: [cached since 0.01502s ago] (0, 99169335)
+2025-12-14 15:41:57,403 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 15:41:57,405 [INFO] logger.logs_setting: RESET_DONE | user_id=99169335 | balance_after=0 | checks_after=0
+2025-12-14 15:41:57,406 [INFO] aiogram.event: Update id=282851692 is handled. Duration 424 ms by bot id=8531768574
+2025-12-14 15:41:57,914 [INFO] sqlalchemy.engine.Engine: BEGIN (implicit)
+2025-12-14 15:41:57,914 [INFO] sqlalchemy.engine.Engine: SELECT balance_state.user_id, balance_state.balance, balance_state.checks_count, balance_state.created_at, balance_state.updated_at 
+FROM balance_state 
+WHERE balance_state.user_id = $1::BIGINT
+2025-12-14 15:41:57,915 [INFO] sqlalchemy.engine.Engine: [cached since 0.9003s ago] (99169335,)
+2025-12-14 15:41:57,921 [INFO] logger.logs_setting: RESET | user_id=99169335 | balance_before=0 | checks_before=0
+2025-12-14 15:41:58,059 [INFO] sqlalchemy.engine.Engine: COMMIT
+2025-12-14 15:41:58,061 [INFO] logger.logs_setting: RESET_DONE | user_id=99169335 | balance_after=0 | checks_after=0
+2025-12-14 15:41:58,061 [INFO] aiogram.event: Update id=282851694 is handled. Duration 152 ms by bot id=8531768574
+2025-12-14 16:01:21,349 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-12-14 16:01:21,350 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8531768574)
+2025-12-14 16:01:32,660 [INFO] aiogram.dispatcher: Connection established (tryings = 1, bot id = 8531768574)
+2025-12-14 16:32:23,518 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-12-14 16:32:23,520 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8531768574)
+2025-12-14 16:32:34,874 [INFO] aiogram.dispatcher: Connection established (tryings = 1, bot id = 8531768574)
+2025-12-14 17:09:36,325 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-12-14 17:09:36,325 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8531768574)
+2025-12-14 17:09:47,642 [INFO] aiogram.dispatcher: Connection established (tryings = 1, bot id = 8531768574)
+2025-12-14 17:43:11,579 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-12-14 17:43:11,581 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8531768574)
+2025-12-14 17:43:22,980 [INFO] aiogram.dispatcher: Connection established (tryings = 1, bot id = 8531768574)
+2025-12-14 18:15:47,061 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-12-14 18:15:47,062 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8531768574)
+2025-12-14 18:15:58,375 [INFO] aiogram.dispatcher: Connection established (tryings = 1, bot id = 8531768574)
+2025-12-14 19:00:39,157 [ERROR] aiogram.dispatcher: Failed to fetch updates - TelegramNetworkError: HTTP Client says - Request timeout error
+2025-12-14 19:00:39,159 [WARNING] aiogram.dispatcher: Sleep for 1.000000 seconds and try again... (tryings = 0, bot id = 8531768574)
+2025-12-14 19:00:50,465 [INFO] aiogram.dispatcher: Connection established (tryings = 1, bot id = 8531768574)
+2025-12-14 19:26:16,056 [WARNING] aiogram.dispatcher: Received SIGINT signal
+2025-12-14 19:26:16,058 [INFO] aiogram.dispatcher: Polling stopped for bot @BalanceTeBot id=8531768574 - 'BalanceBot'
+2025-12-14 19:26:16,059 [INFO] aiogram.dispatcher: Polling stopped
