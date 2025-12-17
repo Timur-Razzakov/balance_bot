@@ -8,45 +8,61 @@ from models.balance import BalanceState, BalanceOperation
 class BalanceRepository:
     @staticmethod
     async def get_or_create(
-        session: AsyncSession, user_id: int
+            session: AsyncSession,
+            chat_id: int,
+            user_id: int,
     ) -> BalanceState:
-        stmt = select(BalanceState).where(BalanceState.user_id == user_id)
+        stmt = (
+            select(BalanceState)
+            .where(
+                BalanceState.chat_id == chat_id,
+                BalanceState.user_id == user_id,
+            )
+        )
+
         result = await session.execute(stmt)
         state = result.scalar_one_or_none()
 
         if state is None:
-            state = BalanceState(user_id=user_id)
+            state = BalanceState(
+                chat_id=chat_id,
+                user_id=user_id,
+            )
             session.add(state)
-            await session.flush()  # created_at сразу появится
+            await session.flush()
 
         return state
+
     @staticmethod
     async def apply_delta(
             session: AsyncSession,
             state: BalanceState,
-            delta: int
+            delta: int,
     ) -> None:
         old_balance = state.balance
         old_checks = state.checks_count
 
-        # текущее состояние
         state.balance += delta
 
         if delta > 0:
             state.checks_count += 1
         elif delta < 0 < state.checks_count:
             state.checks_count -= 1
-        # пишем операцию в историю
+
         session.add(
             BalanceOperation(
+                chat_id=state.chat_id,
                 user_id=state.user_id,
                 delta=delta,
             )
         )
+
         await session.commit()
+
         logger.info(
-            "BALANCE_UPDATE | user_id=%s | delta=%s | "
+            "BALANCE_UPDATE | chat_id=%s | user_id=%s | delta=%s | "
             "balance: %s -> %s | checks: %s -> %s",
+            state.chat_id,
             state.user_id,
             delta,
             old_balance,
@@ -54,6 +70,7 @@ class BalanceRepository:
             old_checks,
             state.checks_count,
         )
+
     @staticmethod
     async def reset(
             session: AsyncSession,

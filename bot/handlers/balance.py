@@ -19,12 +19,18 @@ def is_number(text: str) -> bool:
 @router.message(F.text == "/end")
 async def reset(message: Message, session_maker):
     user_id = message.from_user.id
+    chat_id = message.chat.id
 
     async with session_maker() as session:
-        state = await repo.get_or_create(session, user_id)
+        state = await repo.get_or_create(
+            session=session,
+            chat_id=chat_id,
+            user_id=user_id,
+        )
 
         logger.info(
-            "RESET | user_id=%s | balance_before=%s | checks_before=%s",
+            "RESET | chat_id=%s | user_id=%s | balance_before=%s | checks_before=%s",
+            chat_id,
             user_id,
             state.balance,
             state.checks_count,
@@ -38,8 +44,10 @@ async def reset(message: Message, session_maker):
 
         await message.answer(text)
         await repo.reset(session, state)
+
         logger.info(
-            "RESET_DONE | user_id=%s | balance_after=0 | checks_after=0",
+            "RESET_DONE | chat_id=%s | user_id=%s | balance_after=0 | checks_after=0",
+            chat_id,
             user_id,
         )
 
@@ -48,11 +56,20 @@ async def reset(message: Message, session_maker):
 async def handle_amount(message: Message, session_maker):
     raw = message.text.replace(" ", "")
     value = int(raw)
+
     user_id = message.from_user.id
-
+    chat_id = message.chat.id
+    print(234234234,user_id)
+    print(45545454,chat_id)
     async with session_maker() as session:
-        state = await repo.get_or_create(session, user_id)
-
+        state = await repo.get_or_create(
+            session=session,
+            chat_id=chat_id,
+            user_id=user_id,
+        )
+        print(23423423423,state )
+        print(7677,state.chat_id )
+        print(54545,state.user_id )
         balance_before = state.balance
         checks_before = state.checks_count
 
@@ -68,8 +85,11 @@ async def handle_amount(message: Message, session_maker):
             f"💰 Текущий баланс: {format_money(state.balance)}\n"
             f"🧾 Чеков: {state.checks_count}"
         )
+
         logger.info(
-            "APPLY_DELTA | user_id=%s | delta=%s | balance: %s -> %s | checks: %s -> %s",
+            "APPLY_DELTA | chat_id=%s | user_id=%s | delta=%s | "
+            "balance: %s -> %s | checks: %s -> %s",
+            chat_id,
             user_id,
             value,
             balance_before,
@@ -77,4 +97,5 @@ async def handle_amount(message: Message, session_maker):
             checks_before,
             state.checks_count,
         )
+
         await message.answer(text)

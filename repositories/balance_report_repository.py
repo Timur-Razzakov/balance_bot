@@ -5,11 +5,11 @@ from models.balance import BalanceOperation
 
 
 class BalanceReportRepository:
-
+    @staticmethod
     async def report_by_days(
-        self,
-        session: AsyncSession,
-        user_id: int,
+            session: AsyncSession,
+            chat_id: int,
+            user_id: int,
     ):
         stmt = (
             select(
@@ -19,7 +19,10 @@ class BalanceReportRepository:
                 .filter(BalanceOperation.delta > 0)
                 .label("checks"),
             )
-            .where(BalanceOperation.user_id == user_id)
+            .where(
+                BalanceOperation.chat_id == chat_id,
+                BalanceOperation.user_id == user_id,
+            )
             .group_by(func.date(BalanceOperation.created_at))
             .order_by(func.date(BalanceOperation.created_at))
         )
