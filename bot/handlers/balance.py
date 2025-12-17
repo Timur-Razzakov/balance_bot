@@ -59,17 +59,12 @@ async def handle_amount(message: Message, session_maker):
 
     user_id = message.from_user.id
     chat_id = message.chat.id
-    print(234234234,user_id)
-    print(45545454,chat_id)
     async with session_maker() as session:
         state = await repo.get_or_create(
             session=session,
             chat_id=chat_id,
             user_id=user_id,
         )
-        print(23423423423,state )
-        print(7677,state.chat_id )
-        print(54545,state.user_id )
         balance_before = state.balance
         checks_before = state.checks_count
 
